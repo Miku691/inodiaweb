@@ -1,0 +1,105 @@
+<div>
+  <h2 class="heading">-: Content Tools :-</h2>
+  <div class="border p-2 container">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-td-tab" data-bs-toggle="tab" data-bs-target="#nav-td" type="button"
+          role="tab" aria-controls="nav-td" aria-selected="true" title="Title Desctiption">T-D</button>
+
+        <button class="nav-link" id="nav-image-tab" data-bs-toggle="tab" data-bs-target="#nav-image" type="button"
+          role="tab" aria-controls="nav-image" aria-selected="false">Image</button>
+
+        <button class="nav-link" id="nav-table-tab" data-bs-toggle="tab" data-bs-target="#nav-table" type="button"
+          role="tab" aria-controls="nav-table" aria-selected="false">Table</button>
+
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <!-- title description -->
+      <div class="tab-pane fade show active" id="nav-td" role="tabpanel" aria-labelledby="nav-td-tab" tabindex="0">
+        <div class="form-floating m-2">
+          <textarea class="form-control" ng-model="h2TitleTxt" placeholder="Leave a comment here" id="floatingTextarea1"
+            style="height: 100px"></textarea>
+          <label for="floatingTextarea1">Title (h2)</label>
+        </div>
+
+        <div class="form-floating m-2">
+          <textarea class="form-control" ng-model="titleDesc" placeholder="Leave a comment here" id="floatingTextarea2"
+            style="height: 100px"></textarea>
+          <label for="floatingTextarea2">Desctiption</label>
+        </div>
+
+        <center>
+          <div class="mt-2">
+            <button type="button" class="btn btn-primary" ng-click="addTitleDescData()">Add</button>
+            <button type="button" class="btn btn-outline-primary" ng-click="addTitleDescData('alone')">Extract
+              Alone</button>
+          </div>
+        </center>
+      </div>
+
+      <!-- Image and caption -->
+      <div class="tab-pane fade" id="nav-image" role="tabpanel" aria-labelledby="nav-image-tab" tabindex="0">
+        <div class="form-floating m-2">
+          <textarea class="form-control" ng-model="imageURL" placeholder="Leave a comment here" id="floatingTextarea3"
+            style="height: 100px"></textarea>
+          <label for="floatingTextarea3">Image URL</label>
+        </div>
+
+        <div class="form-floating m-2">
+          <textarea class="form-control" ng-model="imageAltTxt" placeholder="Leave a comment here" id="floatingTextarea4"
+            style="height: 100px"></textarea>
+          <label for="floatingTextarea4">Alt Text</label>
+        </div>
+
+        <center>
+          <div class="mt-2">
+            <button type="button" class="btn btn-primary" ng-click="addImageAltTxtData()">Add</button>
+            <button type="button" class="btn btn-outline-primary" ng-click="addImageAltTxtData('alone')">Extract
+              Alone</button>
+          </div>
+        </center>
+      </div>
+
+      <!-- Table and title -->
+      <div class="tab-pane fade" id="nav-table" role="tabpanel" aria-labelledby="nav-table-tab" tabindex="0">
+        <p class="m-2">Select the biography table type :-</p>
+        <select class="form-select" ng-options="option for option in tableTypes" ng-model="selectedTableType"
+          ng-change="selectedTableTypeFunc()">
+        </select>
+
+        <center>
+          <table class="mt-4">
+            <tr ng-repeat="(key, value) in commonTableObj">
+              <td> {{key}} </td>
+              <td>
+                <input ng-change="selectKeyValue(key, value)" ng-model="value">
+              </td>
+              <td class="closeX" ng-click="removeObjKey(key)">X</td>
+            </tr>
+          </table>
+        </center>
+
+        <center>
+          <div class="mt-2">
+            <button type="button" class="btn btn-primary" ng-click="addTitleTableData()">Add</button>
+            <button type="button" class="btn btn-outline-primary" ng-click="addTitleTableData('alone')">Extract
+              Alone</button>
+            <button type="button" class="btn btn-outline-danger" ng-click="removeTitleTableData()">Remove</button>
+          </div>
+        </center>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Result Box -->
+  <div class="container-fluid mt-3">
+    <div class="form-floating">
+      <textarea class="form-control" ng-model="localStorageData" placeholder="Leave a comment here"
+        id="floatingTextarea2" style="height: 200px"></textarea>
+      <label for="floatingTextarea2"></label>
+    </div>
+  </div>
+</div>

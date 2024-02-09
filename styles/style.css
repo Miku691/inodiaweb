@@ -1,0 +1,12 @@
+.heading{
+    text-align: center;
+}
+.closeX{
+    font-size: 20px;
+    padding-left: 10px;
+    padding-bottom: 3px;
+}
+.closeX:hover{
+    cursor: pointer;
+    color: red;
+}
